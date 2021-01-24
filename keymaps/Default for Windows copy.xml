@@ -1,0 +1,22 @@
+<keymap version="1" name="Default for Windows copy" parent="$default">
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="ctrl divide" />
+    <keyboard-shortcut first-keystroke="ctrl 3" />
+    <keyboard-shortcut first-keystroke="ctrl 1" />
+  </action>
+  <action id="Console.Execute.Multiline" />
+  <action id="DirDiffMenu.SynchronizeDiff.All" />
+  <action id="DuplicatesForm.SendToLeft" />
+  <action id="EditorSplitLine">
+    <keyboard-shortcut first-keystroke="ctrl f10" />
+  </action>
+  <action id="FileChooser.GotoHome" />
+  <action id="FileChooser.GotoModule" />
+  <action id="GotoBookmark1" />
+  <action id="GotoBookmark3" />
+  <action id="Run">
+    <keyboard-shortcut first-keystroke="ctrl enter" />
+  </action>
+  <action id="UpdateRunningApplication" />
+  <action id="ViewSource" />
+</keymap>
