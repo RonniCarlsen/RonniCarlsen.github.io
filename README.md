@@ -1,8 +1,8 @@
 # Header
 
 ### Initial data exploration
-- [Heatmap](https://christiannielsen98.github.io/Plots/KCLT_heatmap.html)
-- [SPLOM](https://christiannielsen98.github.io/Plots/SPLOM.html)
+- [Heatmap](http://RonniCarlsen.github.io/Plots/KCLT_heatmap.html)
+- [SPLOM](http://RonniCarlsen.github.io/Plots/PLOM.html)
 
 ### On which date was the highest temperature measured? 
 ### What are the median of the mean?
