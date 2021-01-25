@@ -45,37 +45,37 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'KCLT_heatmap.html'))
 
 ## SPLOM
-fig = go.Figure(data=go.Splom(
-                dimensions=[dict(label='record_max_temp',
-                                 values=KCLT['record_max_temp']),
-                            dict(label='record_min_temp',
-                                 values=KCLT['record_min_temp']),
-                            dict(label='average_max_temp',
-                                 values=KCLT['average_max_temp']),
-                            dict(label='average_min_temp',
-                                 values=KCLT['average_min_temp']),
-                            dict(label='actual_max_temp',
-                                 values=KCLT['actual_max_temp']),
-                            dict(label='actual_min_temp',
-                                 values=KCLT['actual_min_temp']),
-                            dict(label='actual_mean_temp',
-                                 values=KCLT['actual_mean_temp'])],
-                diagonal_visible=False,
-                marker=dict(
-                    line_color='white',
-                    line_width=0.5),
-
-                ))
-
-
-fig.update_layout(
-    title='SPLOM of the attribute with high correlation from heatmap',
-    width=1200,
-    height=750,
-)
+# fig = go.Figure(data=go.Splom(
+#                 dimensions=[dict(label='record_max_temp',
+#                                  values=KCLT['record_max_temp']),
+#                             dict(label='record_min_temp',
+#                                  values=KCLT['record_min_temp']),
+#                             dict(label='average_max_temp',
+#                                  values=KCLT['average_max_temp']),
+#                             dict(label='average_min_temp',
+#                                  values=KCLT['average_min_temp']),
+#                             dict(label='actual_max_temp',
+#                                  values=KCLT['actual_max_temp']),
+#                             dict(label='actual_min_temp',
+#                                  values=KCLT['actual_min_temp']),
+#                             dict(label='actual_mean_temp',
+#                                  values=KCLT['actual_mean_temp'])],
+#                 diagonal_visible=False,
+#                 marker=dict(
+#                     line_color='white',
+#                     line_width=0.5),
+#
+#                 ))
+#
+#
+# fig.update_layout(
+#     title='SPLOM of the attribute with high correlation from heatmap',
+#     width=1200,
+#     height=750,
+# )
 
 # fig.show()
-fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'SPLOM.html'))
+# fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'SPLOM.html'))
 
 ##Create scatter line plot of actual temp, min, mean, max and boxplot(WORKING, done)
 
