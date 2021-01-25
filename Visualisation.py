@@ -35,19 +35,52 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #                 x=KCLT.columns,
 #                 y=KCLT.columns,
 #                 z=KCLT.corr(),
-#                 colorscale='RdBu',
+#                 colorscale='BrBg',
 #                 reversescale=True, zmid=0
 #             )
 #         )
-# fig.update_layout(title="KCLT")
+# fig.update_layout(title="Correlation heatmap of the KCLT weather station attributes")
 #
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'KCLT_heatmap.html'))
 
+## SPLOM
+fig = go.Figure(data=go.Splom(
+                dimensions=[dict(label='record_max_temp',
+                                 values=KCLT['record_max_temp']),
+                            dict(label='record_min_temp',
+                                 values=KCLT['record_min_temp']),
+                            dict(label='average_max_temp',
+                                 values=KCLT['average_max_temp']),
+                            dict(label='average_min_temp',
+                                 values=KCLT['average_min_temp']),
+                            dict(label='actual_max_temp',
+                                 values=KCLT['actual_max_temp']),
+                            dict(label='actual_min_temp',
+                                 values=KCLT['actual_min_temp']),
+                            dict(label='actual_mean_temp',
+                                 values=KCLT['actual_mean_temp'])],
+                diagonal_visible=False,
+                marker=dict(
+                    line_color='white',
+                    line_width=0.5),
 
-##Create scatter line plot of actual temp, min, mean, max (WORKING)
-#
-# fig = go.Figure()
+                ))
+
+
+fig.update_layout(
+    title='SPLOM of the attribute with high correlation from heatmap',
+    width=1200,
+    height=750,
+)
+
+# fig.show()
+fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'SPLOM.html'))
+
+##Create scatter line plot of actual temp, min, mean, max and boxplot(WORKING, done)
+
+# fig = make_subplots(rows=2,
+#                     cols=1)
 #
 # fig.add_trace(
 #     go.Scatter(
@@ -55,16 +88,20 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         y=KCLT.actual_max_temp,
 #         name='Max',
 #         line=dict(color='firebrick', width= 4, dash= 'dot')
-#     )
+#         ),
+#         row=1,
+#         col=1
 # )
 #
 # fig.add_trace(
 #     go.Scatter(
 #         x=KCLT.date,
 #         y=KCLT.actual_mean_temp,
-#         #line_color='',
+#         marker_color='grey',
 #         name='Mean'
-#     )
+#         ),
+#         row=1,
+#         col=1
 # )
 #
 # fig.add_trace(
@@ -72,20 +109,70 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         x=KCLT.date,
 #         y=KCLT.actual_min_temp,
 #         name='Min',
-#         line=dict(color='royalblue', width= 4, dash= 'dot')
-#     )
+#         line=dict(color='royalblue', width= 4, dash= 'dash')
+#         ),
+#         row=1,
+#         col=1
 # )
 #
-# fig.update_layout(title='Temperature measured at the KCLT weather station ',
-#                     yaxis_title='Temperature (degrees F)')
+# fig.add_trace(
+#     go.Box(
+#         y=KCLT.actual_max_temp,
+#         boxpoints='all',
+#         jitter=0.5,
+#         whiskerwidth=0.2,
+#         marker_size=2,
+#         line_width=1,
+#         marker_color='firebrick',
+#         name='max',
+#         showlegend=False
+#         ),
+#         row=2,
+#         col=1
+# )
+#
+# fig.add_trace(
+#     go.Box(
+#         y=KCLT.actual_mean_temp,
+#         boxpoints='all',
+#         jitter=0.5,
+#         whiskerwidth=0.2,
+#         marker_size=2,
+#         line_width=1,
+#         marker_color='grey',
+#         name='mean',
+#         showlegend=False
+#         ),
+#         row=2,
+#         col=1
+# )
+# fig.add_trace(
+#     go.Box(
+#         y=KCLT.actual_min_temp,
+#         boxpoints='all',
+#         jitter=0.5,
+#         whiskerwidth=0.2,
+#         marker_size=2,
+#         line_width=1,
+#         marker_color='royalblue',
+#         name='min',
+#         showlegend=False
+#         ),
+#         row=2,
+#         col=1
+# )
+#
+# fig.update_yaxes(title='Temperature (degrees F)')
+# fig.update_layout(title='Temperature measured at the KCLT weather station ')
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_avg_scatter.html'))
 
 
 
-## Plotting record and average precipitation as a scatter plot (WORKING)
-
+## Plotting record and average precipitation as a scatter plot (WORKING, done)
+#
 # fig = go.Figure()
+#
 # fig.add_trace(
 #     go.Scatter(
 #     x= KCLT.date,
@@ -101,7 +188,7 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #     x= KCLT.date,
 #     y=KCLT.average_precipitation,
 #     mode='lines+markers',
-#     line_color='royalblue',
+#     line_color='grey',
 #     name='Average amount of rain or snow on that day since 1880'
 #     )
 # )
@@ -115,6 +202,8 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #     name='Measured amount of rain or snow for that day'
 #     )
 # )
+#
+#
 # fig.update_yaxes(title_text='rain/snow')
 # fig.update_layout(
 #                 font=dict(
@@ -126,8 +215,8 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'record_average_precipitation_scatter.html'))
 
 
-## Plotting record_min_temp and record_max_temp (WORKING, needs detailing)
-
+## Plotting record_min_temp and record_max_temp (WORKING, done)
+#
 # fig = go.Figure()
 #
 # fig.add_trace(
@@ -135,8 +224,20 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         x=KCLT.date,
 #         y=KCLT.record_max_temp,
 #         mode='lines+markers',
-#         line_color='firebrick',
-#         name='record_max_temp'
+#         # line_color='firebrick',
+#         marker=dict(
+#             color=KCLT.record_max_temp,
+#             colorbar=dict(
+#                 title="Max temp"
+#             ),
+#             colorbar_x=1,
+#             colorscale='reds',
+#         ),
+#         line=dict(
+#                 color='firebrick'
+#         ),
+#         showlegend=False,
+#         name='record max temp'
 #     )
 # )
 #
@@ -145,40 +246,41 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         x=KCLT.date,
 #         y=KCLT.record_min_temp,
 #         mode='lines+markers',
-#         line_color='royalblue',
-#         name='record_max_temp'
+#         # line_color='royalblue',
+#         marker=dict(
+#             color=KCLT.record_min_temp,
+#             colorbar=dict(
+#                 title="Min temp"
+#             ),
+#             colorbar_x=1.07,
+#             colorscale='blues',
+#             reversescale=True,
+#
+#         ),
+#         line=dict(
+#                 color='royalblue'
+#         ),
+#         showlegend=False,
+#         name='record min temp'
 #     )
 # )
-#
+# fig.update_traces(marker_line_width=0.5)
+# fig.update_yaxes(title='Temperature (degrees F)')
+# fig.update_layout(title='The highest and lowest temperature measured on that day since 1880 at KCLT weather station')
+
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_record_scatter.html'))
 
-## box plot and scatter plot of record precipitation (WORKING, Ved ikke hvad jeg skal med plottet(indsæt et box plot over average også))
-# fig = go.Figure()
-# fig.add_trace(
-#              go.Box(
-#              y=KCLT.record_precipitation,
-#             name='record_precipitation',
-#             boxpoints='all',
-#             jitter=0.5,
-#             whiskerwidth=0.2,
-#             marker_size=2,
-#             line_width=1
-#             )
-#         )
-# fig.show()
-# df_max = KCLT.groupby(['record_max_temp_year'], as_index=True)[['record_max_temp_year']].count()
-# df_min = KCLT.groupby(['record_min_temp_year'], as_index=True)[['record_min_temp_year']].count()'
-df_max = KCLT.set_index(['record_max_temp_year']).count(level='record_max_temp_year')
-print(df_max.info())
-print(df_max)
-
+## Creating bar plot of the temperature records meassured at KCLT.
+#
+# freq_max = KCLT.groupby(['record_max_temp_year'], as_index=False)[['record_max_temp']].count()
+# freq_min = KCLT.groupby(['record_min_temp_year'], as_index=False)[['record_min_temp']].count()
 #
 # fig = go.Figure()
 # fig.add_trace(
 #             go.Bar(
 #                 x=KCLT.record_max_temp_year,
-#                 y=df_max[],
+#                 y=KCLT.record_max_temp,
 #                 marker_color='firebrick',
 #                 name='Maximum temperature records'
 #
@@ -187,7 +289,7 @@ print(df_max)
 # fig.add_trace(
 #             go.Bar(
 #                 x=KCLT.record_min_temp_year,
-#                 y=df_min[],
+#                 y=KCLT.record_min_temp,
 #                 marker_color='royalblue',
 #                 name='Minimum temperature records'
 #
@@ -204,4 +306,20 @@ print(df_max)
 #                 barmode='group'
 #                 )
 #
+# fig.show()
+# fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Bar_plot_min_max_records.html'))
+
+## box plot and scatter plot of record precipitation (WORKING, Ved ikke hvad jeg skal med plottet(indsæt et box plot over average også))
+# fig = go.Figure()
+# fig.add_trace(
+#              go.Box(
+#              y=KCLT.record_precipitation,
+#             name='record_precipitation',
+#             boxpoints='all',
+#             jitter=0.5,
+#             whiskerwidth=0.2,
+#             marker_size=2,
+#             line_width=1
+#             )
+#         )
 # fig.show()
