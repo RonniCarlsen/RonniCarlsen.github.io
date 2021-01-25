@@ -6,7 +6,7 @@
 
 ### On which date was the highest temperature measured? 
 ### What are the median of the mean?
-- [[Measured temp scatter and box plot]](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
+- [Measured temp scatter and box plot](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
 
 ### Question
 - [Temp scatter plot](https://RonniCarlsen.github.io/Plots/temp_min_max_record_scatter.html)
