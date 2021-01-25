@@ -1,13 +1,21 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/RonniCarlsen/RonniCarlsen.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Initial data exploration
+- [Heatmap](https://christiannielsen98.github.io/Plots/KCLT_heatmap.html)
+- [SPLOM](https://christiannielsen98.github.io/Plots/SPLOM.html)
 
-### Markdown
+## On which date was the highest temperature measured? 
+## What are the median of the mean?
+- [Scatter plot](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+##
+- [Measured temp scatter and box plot](https://RonniCarlsen.github.io/Plots/temp_min_max_record_scatter.html)
 
+##
+- [Precipitation scatter plot](https://RonniCarlsen.github.io/Plots/record_average_precipitation_scatter.html)
+
+##
+- [Temp records bar plot]
 ```markdown
 Syntax highlighted code block
 
