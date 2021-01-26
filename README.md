@@ -6,14 +6,14 @@
 
 ### On which date was the highest temperature measured? 
 ### What are the median of the mean?
-- [Measured temp scatter and box plot](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
+- [Scatter and box plot of measured temperature](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
 
 ### Question
-- [Temp scatter plot](https://RonniCarlsen.github.io/Plots/temp_min_max_record_scatter.html)
+- [Scatter plot of temperature records](https://RonniCarlsen.github.io/Plots/temp_min_max_record_scatter.html)
 
 ### Question
-- [Temp records bar plot](https://RonniCarlsen.github.io/Plots/Bar_plot_min_max_records.html)
+- [Bar plor of temperature records and year of event](https://RonniCarlsen.github.io/Plots/Bar_plot_min_max_records.html)
 
 ### Is it possible to tell from the plot, how many precipitation records were made in from July 2014 to July 2015?
-- [Precipitation scatter plot](https://RonniCarlsen.github.io/Plots/record_average_precipitation_scatter.html)
+- [Scatter plot of precipitation](https://RonniCarlsen.github.io/Plots/record_average_precipitation_scatter.html)
 
