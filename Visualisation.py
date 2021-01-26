@@ -4,6 +4,7 @@ import glob
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.figure_factory as ff
 from datetime import datetime
 import os.path
 
@@ -74,11 +75,9 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #                                         title="Temperature degree F"
 #                                         ),
 #                             colorbar_x=1,
-#
 #                 )
 #                 )
 #     )
-#
 #
 # fig.update_layout(
 #     title='SPLOM of the temperature attributes with high correlation from heatmap',
@@ -229,59 +228,86 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 
 ## Plotting record_min_temp and record_max_temp (WORKING, done)
 #
-# fig = go.Figure()
-#
-# fig.add_trace(
-#     go.Scatter(
-#         x=KCLT.date,
-#         y=KCLT.record_max_temp,
-#         mode='lines+markers',
-#         # line_color='firebrick',
-#         marker=dict(
-#             color=KCLT.record_max_temp,
-#             colorbar=dict(
-#                 title="Max temp"
-#             ),
-#             colorbar_x=1,
-#             colorscale='reds',
-#         ),
-#         line=dict(
-#                 color='firebrick'
-#         ),
-#         showlegend=False,
-#         name='record max temp'
-#     )
-# )
-#
-# fig.add_trace(
-#     go.Scatter(
-#         x=KCLT.date,
-#         y=KCLT.record_min_temp,
-#         mode='lines+markers',
-#         # line_color='royalblue',
-#         marker=dict(
-#             color=KCLT.record_min_temp,
-#             colorbar=dict(
-#                 title="Min temp"
-#             ),
-#             colorbar_x=1.07,
-#             colorscale='blues',
-#             reversescale=True,
-#
-#         ),
-#         line=dict(
-#                 color='royalblue'
-#         ),
-#         showlegend=False,
-#         name='record min temp'
-#     )
-# )
-# fig.update_traces(marker_line_width=0.5)
-# fig.update_yaxes(title='Temperature (degrees F)')
-# fig.update_layout(title='The highest and lowest temperature measured on that day since 1880 at KCLT weather station')
+fig = make_subplots(
+    rows=2,
+    cols=1,
+)
+
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.date,
+        y=KCLT.record_max_temp,
+        mode='lines+markers',
+        marker=dict(
+            color=KCLT.record_max_temp,
+            colorbar=dict(
+                title="Max temp"
+            ),
+            colorbar_x=1,
+            colorscale='reds',
+        ),
+        line=dict(
+                color='firebrick'
+        ),
+        showlegend=False,
+        name='record max temp'
+        ),
+        row=1,
+        col=1
+
+)
+
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.date,
+        y=KCLT.record_min_temp,
+        mode='lines+markers',
+        marker=dict(
+            color=KCLT.record_min_temp,
+            colorbar=dict(
+                title="Min temp"
+            ),
+            colorbar_x=1.07,
+            colorscale='blues',
+            reversescale=True,
+
+        ),
+        line=dict(
+                color='royalblue'
+        ),
+        showlegend=False,
+        name='record min temp'
+    ),
+    row=1,
+    col=1
+)
+
+fig.add_trace(
+    go.Histogram(x=KCLT.record_max_temp,
+                 marker_color='firebrick',
+                 showlegend=False
+    ),
+    row=2,
+    col=1
+)
+
+fig.add_trace(
+    go.Histogram(x=KCLT.record_min_temp,
+                 marker_color='royalblue',
+                 showlegend=False
+    ),
+    row=2,
+    col=1
+)
+
+fig.update_traces(marker_line_width=0.5)
+fig.update_yaxes(title='Temperature (degrees F)', row=1, matches='x2')
+fig.update_yaxes(title='Count', row=2)
+fig.update_xaxes(title='Temperature (degrees F)', row=2)
+fig.update_layout(title='The highest and lowest temperature measured on that day since 1880 at KCLT weather station')
 
 # fig.show()
-# fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_record_scatter.html'))
+fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_record_scatter.html'))
 
 ## Creating bar plot of the temperature records meassured at KCLT.
 #
