@@ -2,7 +2,7 @@
 
 ### Initial data exploration
 - [Heatmap](http://RonniCarlsen.github.io/Plots/KCLT_heatmap.html)
-- [SPLOM](http://RonniCarlsen.github.io/Plots/PLOM.html)
+- [SPLOM](http://RonniCarlsen.github.io/Plots/SPLOM.html)
 
 ### On which date was the highest temperature measured? 
 ### What are the median of the mean?
