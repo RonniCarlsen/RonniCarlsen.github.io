@@ -40,39 +40,51 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #             )
 #         )
 # fig.update_layout(title="Correlation heatmap of the KCLT weather station attributes")
-#
+# #labels={col:col.replace('_', ' ') for col in df.columns})
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'KCLT_heatmap.html'))
 
-## SPLOM
-# fig = go.Figure(data=go.Splom(
-#                 dimensions=[dict(label='record_max_temp',
+
+
+## SPLOM of the temperature attributes.
+# fig = go.Figure(
+#     data=go.Splom(
+#                 dimensions=[dict(label='record max',
 #                                  values=KCLT['record_max_temp']),
-#                             dict(label='record_min_temp',
+#                             dict(label='record min',
 #                                  values=KCLT['record_min_temp']),
-#                             dict(label='average_max_temp',
+#                             dict(label='average max',
 #                                  values=KCLT['average_max_temp']),
-#                             dict(label='average_min_temp',
+#                             dict(label='average min',
 #                                  values=KCLT['average_min_temp']),
-#                             dict(label='actual_max_temp',
+#                             dict(label='actual max',
 #                                  values=KCLT['actual_max_temp']),
-#                             dict(label='actual_min_temp',
+#                             dict(label='actual min',
 #                                  values=KCLT['actual_min_temp']),
-#                             dict(label='actual_mean_temp',
+#                             dict(label='actual mean',
 #                                  values=KCLT['actual_mean_temp'])],
+#                 showupperhalf=False,
 #                 diagonal_visible=False,
-#                 marker=dict(
-#                     line_color='white',
-#                     line_width=0.5),
+#                 marker=dict(color=KCLT.actual_max_temp,
+#                             size=7,
+#                             colorscale='balance',
+#                             line_color='grey',
+#                             line_width=0.3,
+#                             colorbar=dict(
+#                                         title="Temperature degree F"
+#                                         ),
+#                             colorbar_x=1,
 #
-#                 ))
+#                 )
+#                 )
+#     )
 #
 #
 # fig.update_layout(
-#     title='SPLOM of the attribute with high correlation from heatmap',
+#     title='SPLOM of the temperature attributes with high correlation from heatmap',
 #     width=1200,
-#     height=750,
-# )
+#     height=775,
+#     )
 
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'SPLOM.html'))
