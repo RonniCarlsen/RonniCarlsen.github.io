@@ -237,3 +237,18 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.update_layout(barmode='group')
 #
 # fig.show()
+
+## box plot and scatter plot of record precipitation (WORKING, Ved ikke hvad jeg skal med plottet(indsæt et box plot over average også))
+# fig = go.Figure()
+# fig.add_trace(
+#              go.Box(
+#              y=KCLT.record_precipitation,
+#             name='record_precipitation',
+#             boxpoints='all',
+#             jitter=0.5,
+#             whiskerwidth=0.2,
+#             marker_size=2,
+#             line_width=1
+#             )
+#         )
+# fig.show()
