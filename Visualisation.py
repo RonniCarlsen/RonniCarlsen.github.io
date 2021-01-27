@@ -178,7 +178,7 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # )
 #
 # fig.update_yaxes(title='Temperature (degrees F)')
-# fig.update_layout(title='Temperature measured at the KCLT weather station ')
+# fig.update_layout(title='Temperature measured at the KCLT weather station')
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_avg_scatter.html'))
 # fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_avg_scatter.png'))
