@@ -307,7 +307,7 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #
 # fig.update_traces(marker_line_width=0.5)
 # fig.update_yaxes(title='Temperature (degrees F)', row=1, matches='x2')
-# fig.update_yaxes(title='Count', row=2)
+# fig.update_yaxes(title='Number of record occurrence', row=2)
 # fig.update_xaxes(title='Temperature (degrees F)', row=2)
 # fig.update_layout(title='The highest and lowest temperature measured on that day since 1880 at KCLT weather station')
 
