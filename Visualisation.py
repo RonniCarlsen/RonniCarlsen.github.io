@@ -373,149 +373,169 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 
 # Scatter matrix of precipitation over all temp
 
-fig = make_subplots(rows=2, cols=7)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_mean_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=1
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_max_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=2
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_min_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=3
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.average_max_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=4
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.average_min_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=5
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.record_max_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=6
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.record_min_temp,
-        y=KCLT.actual_precipitation,
-        mode='markers'
-    ),
-        row=1,
-        col=7
-)
-
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_mean_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=1
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_max_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=2
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.actual_min_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=3
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.average_max_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=4
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.average_min_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=5
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.record_max_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=6
-)
-fig.add_trace(
-    go.Scatter(
-        x=KCLT.record_min_temp,
-        y=KCLT.average_precipitation,
-        mode='markers'
-    ),
-        row=2,
-        col=7
-)
-fig.update_yaxes(title='actual precipitation (mm)', row=1, col=1)
-fig.update_yaxes(title='average precipitation (mm)', row=2, col=1)
-
-fig.update_xaxes(title='actual mean temp', col=1)
-fig.update_xaxes(title='actual max temp', col=2)
-fig.update_xaxes(title='actual min temp', col=3)
-
-fig.update_xaxes(title='average max temp', col=4)
-fig.update_xaxes(title='average min temp', col=5)
-
-fig.update_xaxes(title='record max temp', col=6)
-fig.update_xaxes(title='record min temp', col=7)
-
-fig.update_layout(title_text='Scatter matrix of precipitation over temp')
+# fig = make_subplots(rows=2, cols=7)
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_mean_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=1
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_max_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=2
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_min_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=3
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.average_max_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=4
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.average_min_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=5
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.record_max_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=6
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.record_min_temp,
+#         y=KCLT.actual_precipitation,
+#         mode='markers'
+#     ),
+#         row=1,
+#         col=7
+# )
+#
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_mean_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=1
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_max_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=2
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.actual_min_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=3
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.average_max_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=4
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.average_min_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=5
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.record_max_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=6
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.record_min_temp,
+#         y=KCLT.average_precipitation,
+#         mode='markers'
+#     ),
+#         row=2,
+#         col=7
+# )
+# fig.update_yaxes(title='actual precipitation (mm)', row=1, col=1)
+# fig.update_yaxes(title='average precipitation (mm)', row=2, col=1)
+#
+# fig.update_xaxes(title='actual mean temp', col=1)
+# fig.update_xaxes(title='actual max temp', col=2)
+# fig.update_xaxes(title='actual min temp', col=3)
+#
+# fig.update_xaxes(title='average max temp', col=4)
+# fig.update_xaxes(title='average min temp', col=5)
+#
+# fig.update_xaxes(title='record max temp', col=6)
+# fig.update_xaxes(title='record min temp', col=7)
+#
+# fig.update_layout(title_text='Scatter matrix of precipitation over temp')
 
 # fig.show()
-fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.html'))
-fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.png'))
+# fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.html'))
+# fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.png'))
+
+## Correlation between min and max temp records.
+fig = px.scatter(
+    KCLT,
+    x='record_max_temp',
+    y='record_min_temp',
+    title='Correlation of temperature records',
+    marginal_y='histogram',
+    marginal_x='histogram',
+    trendline='ols'
+)
+fig.update_traces(
+    marker=dict(
+        color='#37718E'
+    )
+)
+
+fig.show()
+fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Corr_min_max.html'))
+fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Corr_min_max.png'))
