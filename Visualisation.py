@@ -246,7 +246,10 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         marker=dict(
 #             color=KCLT.record_max_temp,
 #             colorbar=dict(
-#                 title="Max temp"
+#                 title="Max temp",
+#                 len=0.7,
+#                 thickness=40,
+#                 y=0.4
 #             ),
 #             colorbar_x=1,
 #             colorscale='reds',
@@ -254,7 +257,7 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         line=dict(
 #                 color='firebrick'
 #         ),
-#         showlegend=False,
+#         # showlegend=False,
 #         name='record max temp'
 #         ),
 #         row=1,
@@ -270,7 +273,10 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         marker=dict(
 #             color=KCLT.record_min_temp,
 #             colorbar=dict(
-#                 title="Min temp"
+#                 title="Min temp",
+#                 len=0.7,
+#                 thickness=40,
+#                 y=0.4
 #             ),
 #             colorbar_x=1.07,
 #             colorscale='blues',
@@ -280,8 +286,20 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #         line=dict(
 #                 color='royalblue'
 #         ),
-#         showlegend=False,
+#         # showlegend=False,
 #         name='record min temp'
+#     ),
+#     row=1,
+#     col=1
+# )
+# fig.add_trace(
+#     go.Scatter(
+#         x=KCLT.date,
+#         y=KCLT.actual_mean_temp,
+#         mode='lines+markers',
+#         marker_color='grey',
+#         # showlegend=False,
+#         name='actual mean temp'
 #     ),
 #     row=1,
 #     col=1
@@ -290,7 +308,8 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.add_trace(
 #     go.Histogram(x=KCLT.record_max_temp,
 #                  marker_color='firebrick',
-#                  showlegend=False
+#                  # showlegend=False
+#                  name='Number of max records'
 #     ),
 #     row=2,
 #     col=1
@@ -299,7 +318,8 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.add_trace(
 #     go.Histogram(x=KCLT.record_min_temp,
 #                  marker_color='royalblue',
-#                  showlegend=False
+#                  # showlegend=False
+#                  name='Number of min records'
 #     ),
 #     row=2,
 #     col=1
@@ -307,10 +327,10 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 #
 # fig.update_traces(marker_line_width=0.5)
 # fig.update_yaxes(title='Temperature (degrees F)', row=1, matches='x2')
-# fig.update_yaxes(title='Number of record occurrence', row=2)
+# fig.update_yaxes(title='Occurrence', row=2)
 # fig.update_xaxes(title='Temperature (degrees F)', row=2)
 # fig.update_layout(title='The highest and lowest temperature measured on that day since 1880 at KCLT weather station')
-
+#
 # fig.show()
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_record_scatter.html'))
 # fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'temp_min_max_record_scatter.png'))
@@ -351,3 +371,151 @@ KCLT = pd.read_csv('.\\us-weather-history\\KCLT.csv', sep = ',')
 # fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Bar_plot_min_max_records.html'))
 # fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Bar_plot_min_max_records.png'))
 
+# Scatter matrix of precipitation over all temp
+
+fig = make_subplots(rows=2, cols=7)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_mean_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=1
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_max_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=2
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_min_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=3
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.average_max_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=4
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.average_min_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=5
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.record_max_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=6
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.record_min_temp,
+        y=KCLT.actual_precipitation,
+        mode='markers'
+    ),
+        row=1,
+        col=7
+)
+
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_mean_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=1
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_max_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=2
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.actual_min_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=3
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.average_max_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=4
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.average_min_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=5
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.record_max_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=6
+)
+fig.add_trace(
+    go.Scatter(
+        x=KCLT.record_min_temp,
+        y=KCLT.average_precipitation,
+        mode='markers'
+    ),
+        row=2,
+        col=7
+)
+fig.update_yaxes(title='actual precipitation (mm)', row=1, col=1)
+fig.update_yaxes(title='average precipitation (mm)', row=2, col=1)
+
+fig.update_xaxes(title='actual mean temp', col=1)
+fig.update_xaxes(title='actual max temp', col=2)
+fig.update_xaxes(title='actual min temp', col=3)
+
+fig.update_xaxes(title='average max temp', col=4)
+fig.update_xaxes(title='average min temp', col=5)
+
+fig.update_xaxes(title='record max temp', col=6)
+fig.update_xaxes(title='record min temp', col=7)
+
+fig.update_layout(title_text='Scatter matrix of precipitation over temp')
+
+fig.show()
+fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter matrix of precipitation over temp'))
+fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter matrix of precipitation over temp'))
