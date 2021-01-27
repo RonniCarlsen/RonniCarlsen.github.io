@@ -15,6 +15,6 @@
 ### Which records was recorded between 1993-1996?
 - [Bar plot of temperature records and year of event](https://RonniCarlsen.github.io/Plots/Bar_plot_min_max_records.html)
 
-### Is it possible to tell from the plot, how many precipitation records were made in from July 2014 to July 2015?
+### Is it possible to tell from the plot, how many precipitation records were made from July 2014 to July 2015?
 - [Scatter plot of precipitation](https://RonniCarlsen.github.io/Plots/record_average_precipitation_scatter.html)
 
