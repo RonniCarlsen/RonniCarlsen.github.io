@@ -516,6 +516,6 @@ fig.update_xaxes(title='record min temp', col=7)
 
 fig.update_layout(title_text='Scatter matrix of precipitation over temp')
 
-fig.show()
-fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter matrix of precipitation over temp'))
-fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter matrix of precipitation over temp'))
+# fig.show()
+fig.write_html(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.html'))
+fig.write_image(os.path.join(os.path.abspath('./'), 'Plots', 'Scatter_matrix_of_precipitation_over_temp.png'))
