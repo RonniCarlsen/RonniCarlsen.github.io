@@ -18,7 +18,7 @@ The following plots is use as a initial analysis of the dataset.
 ## Questions:
 #### On which date was the highest temperature measured? 
 #### What are the median of the mean?
-Find the answer in the link below
+Find the answers in the link below
 - [Scatter and box plot of measured temperature](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
 
 ## Question:
@@ -29,7 +29,7 @@ Find the answer in the link below:
 ## Questions:
 #### Is it possible to tell wether there is more max records than min, or vice versa?
 #### How many and what kind of records was recorded between 1993-1996?
-Find the answer in the link below
+Find the answers in the link below
 - [Bar plot of temperature records and year of event](https://RonniCarlsen.github.io/Plots/Bar_plot_min_max_records.html)
 
 ## Question:
