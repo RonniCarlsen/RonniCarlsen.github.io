@@ -5,7 +5,7 @@ The following plots is use as a initial analysis of the dataset.
 - [Heatmap](http://RonniCarlsen.github.io/Plots/KCLT_heatmap.html)
 - [SPLOM](http://RonniCarlsen.github.io/Plots/SPLOM.html)
 - [Scattermatrix of precipitation over all temperature attributes](http://RonniCarlsen.github.io/Plots/Scatter_matrix_of_precipitation_over_temp.html)
-- [Scatter plot of corerlation between min and max temperature records](http://RonniCarlsen.github.io/Plots/Corr_min_max.htmll)
+- [Scatter plot of corerlation between min and max temperature records](http://RonniCarlsen.github.io/Plots/Corr_min_max.html)
 
 ## Data analysis
 - [Scatter and box plot of measured temperature](http://RonniCarlsen.github.io/Plots/temp_min_max_avg_scatter.html)
